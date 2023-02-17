@@ -1,12 +1,14 @@
 /* Global Variables */
 let url ="https://api.openweathermap.org/data/2.5/weather?zip="; //adding the url api openweathermap
 let apiKey = ",us&appid=57b4c07506dd2c5d50ee2bf7a7ba03c8"; //adding my personal apikey from openweathermap
-const zipCode = "99501" ;
+// const zipCode = "99501" ;
 
 
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+ 1 +'.'+ d.getDate()+'.'+ d.getFullYear();
+
+
 
 //creating Async function to fetch data from the weathermap api
 const apiData = async (url, Code, Key) => {
@@ -52,6 +54,23 @@ const updateUi = async () => {
         console.log(error);    //using ctach to handle any error
     }
 }
+
+
+
+//selecting the generate button and adding event with callback function
+document.querySelector('#generate').addEventListener('click', (e) => {     
+    const zipCode = document.querySelector('#zip').value;   //getting the zipcode from the user
+    const feelings = document.querySelector('#feelings').value;   //getting the feelings from the user
+
+    
+    apiData(url, zipCode, apiKey).then((result) => {              //fetching data from weathmap api 
+        //sending data to the server
+        sendData('/add',{                
+        temp: Math.round(result['main']['temp']),     //convert temp from float to int
+        date: newDate,                                // send the date
+        feelings: feelings})                          //send the feelings
+    }).then(updateUi)
+});
 
 
 
