@@ -67,7 +67,7 @@ document.querySelector('#generate').addEventListener('click', (e) => {
         temp: Math.round(result['main']['temp']),     //convert temp from float to int
         date: newDate,                                // send the date
         feelings: feelings})                          //send the feelings
-    }).then(updateUi)
+    }).then(updateUi)    //call function to update ui
 });
 
 
