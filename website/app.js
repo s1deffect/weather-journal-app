@@ -40,6 +40,20 @@ const sendData = async (url = "", data = {}) => {  //url to fetch to and an obje
 };
 
 
+//creating function to update ui 
+const updateUi = async () => {
+    const response = await fetch('/all')   //fetching data from the server
+    try {
+        const data = await response.json();    // converting data to js object
+        document.getElementById('date').innerHTML = `today: ${data['date']}`;    //selecting the date div and updating its value
+        document.getElementById('temp').innerHTML = `Temperature is: ${data['temperature']}`;   //selecting the temperature div and updating its value
+        document.getElementById('content').innerHTML = ` Feelings: ${data['userResponse']}`;   //selecting the content div and updating its value
+    } catch(error) {
+        console.log(error);    //using ctach to handle any error
+    }
+}
+
+
 
 
 
