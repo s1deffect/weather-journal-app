@@ -29,15 +29,15 @@ const server = app.listen(port, ()=> console.log(`server is running at port: ${p
 
 
 //post route to recieve data from the client side
-app.post('/add', (req,res) => {
+app.post('/add', (req, res) => {
     projectData = {
         temperature : req.body.temp,
         date : req.body.date,
         userResponse: req.body.feelings,
-    }
+    };
 });
 
 //get route to send data to client side to update ui
 app.get('/all', (req, res) => {
-    res.send(projectData)
+    res.send(projectData);
 });
