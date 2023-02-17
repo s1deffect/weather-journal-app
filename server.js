@@ -35,6 +35,7 @@ app.post('/add', (req, res) => {
         date : req.body.date,
         userResponse: req.body.feelings,
     };
+    console.log(projectData);
 });
 
 //get route to send data to client side to update ui

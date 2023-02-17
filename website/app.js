@@ -13,10 +13,42 @@ const apiData = async (url, Code, Key) => {
     const response = await fetch(url+Code+Key); //requesting data from api
     try {
         const data = await response.json();     //turn the recieved data into js object
-        console.log(data);
         return data;
-    } catch (error) {        //using catch to detect any erorr
+    } catch (error) {        //using catch to handle any erorr
         console.log(error); 
     }
 };
+
+
+
+//creating Async function to send data from the Client Side to server side
+const sendData = async (url = "", data = {}) => {  //url to fetch to and an object contains data will be sent to server
+    const response = await fetch(url, {   
+        method: 'POST',     // setting the method of fetch to POST
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),     //convert json to string
+    });
+    try {
+        const data = await response.json();
+        return data;
+    } catch(error) {
+        console.log(error);        //using catch to handle any erorr
+    } 
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
