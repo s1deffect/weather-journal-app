@@ -1,7 +1,7 @@
 /* Global Variables */
 let url ="https://api.openweathermap.org/data/2.5/weather?zip="; //adding the url api openweathermap
 let apiKey = ",us&appid=57b4c07506dd2c5d50ee2bf7a7ba03c8"; //adding my personal apikey from openweathermap
-// const zipCode = "99501" ;
+
 
 
 // Create a new date instance dynamically with JS
@@ -61,8 +61,6 @@ const updateUi = async () => {
 document.querySelector('#generate').addEventListener('click', (e) => {     
     const zipCode = document.querySelector('#zip').value;   //getting the zipcode from the user
     const feelings = document.querySelector('#feelings').value;   //getting the feelings from the user
-
-    
     apiData(url, zipCode, apiKey).then((result) => {              //fetching data from weathmap api 
         //sending data to the server
         sendData('/add',{                
