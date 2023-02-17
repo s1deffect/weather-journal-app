@@ -22,6 +22,22 @@ app.use(express.static('website'));
 
 
 // Setup Server
-const port = 3000
+const port = 3000;
 const server = app.listen(port, ()=> console.log(`server is running at port: ${port}`)
 );
+
+
+
+//post route to recieve data from the client side
+app.post('/add', (req,res) => {
+    projectData = {
+        temperature : req.body.temp,
+        date : req.body.date,
+        userResponse: req.body.feelings,
+    }
+});
+
+//get route to send data to client side to update ui
+app.get('/all', (req, res) => {
+    res.send(projectData)
+});
