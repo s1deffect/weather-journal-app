@@ -1,6 +1,6 @@
 /* Global Variables */
-let url ="https://api.openweathermap.org/data/2.5/weather?zip="; //adding the url api openweathermap
-let apiKey = ",us&appid=57b4c07506dd2c5d50ee2bf7a7ba03c8"; //adding my personal apikey from openweathermap
+const url ="https://api.openweathermap.org/data/2.5/weather?zip="; //adding the url api openweathermap
+const apiKey = ",us&appid=57b4c07506dd2c5d50ee2bf7a7ba03c8&units=imperial'"; //adding my personal apikey from openweathermap
 
 
 
@@ -63,7 +63,7 @@ document.querySelector('#generate').addEventListener('click', (e) => {
     const feelings = document.querySelector('#feelings').value;   //getting the feelings from the user
     apiData(url, zipCode, apiKey).then((result) => {              //fetching data from weathmap api 
         //sending data to the server
-        sendData('/add',{                
+        sendData('/add',{           
         temp: Math.round(result['main']['temp']),     //convert temp from float to int
         date: newDate,                                // send the date
         feelings: feelings})                          //send the feelings
