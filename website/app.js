@@ -1,6 +1,6 @@
 /* Global Variables */
 const url ="https://api.openweathermap.org/data/2.5/weather?zip="; //adding the url api openweathermap
-const apiKey = ",us&appid=57b4c07506dd2c5d50ee2bf7a7ba03c8&units=imperial'"; //adding my personal apikey from openweathermap
+const apiKey = ""; //adding my personal apikey from openweathermap
 
 
 
